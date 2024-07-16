@@ -25,6 +25,7 @@ public class TypeDtoMapperTest {
         Type expectedResult = new Type(null, "test", new ArrayList<>());
         TypeIncomingDto brand = new TypeIncomingDto("test");
         Type result = mapper.typeIncomingDtoToType(brand);
+        Assertions.assertEquals(brand, new TypeIncomingDto("test"));
         Assertions.assertEquals(expectedResult, result);
     }
 

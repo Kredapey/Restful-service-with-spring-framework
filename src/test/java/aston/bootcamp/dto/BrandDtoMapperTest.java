@@ -25,6 +25,7 @@ public class BrandDtoMapperTest {
         Brand expectedResult = new Brand(null, "test", new ArrayList<>());
         BrandIncomingDto brand = new BrandIncomingDto("test");
         Brand result = mapper.brandIncomingDtoToBrand(brand);
+        Assertions.assertEquals(brand, new BrandIncomingDto("test"));
         Assertions.assertEquals(expectedResult, result);
     }
 

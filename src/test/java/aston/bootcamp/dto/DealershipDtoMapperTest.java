@@ -32,6 +32,7 @@ public class DealershipDtoMapperTest {
                 "test",
                 1L);
         Dealership result = mapper.dealershipIncomingDtoToDealership(dealership);
+        Assertions.assertEquals(dealership, new DealershipIncomingDto("test", "test", 1L));
         Assertions.assertEquals(expectedResult, result);
     }
 
