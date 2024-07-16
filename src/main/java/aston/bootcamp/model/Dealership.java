@@ -20,7 +20,7 @@ public class Dealership {
     @Column(name = "house_num")
     private Long houseNum;
     @ManyToMany(cascade = {CascadeType.ALL},
-    fetch = FetchType.EAGER)
+            fetch = FetchType.EAGER)
     @JoinTable(name = "dealerships_bikes",
             joinColumns = {@JoinColumn(name = "dealership_id")},
             inverseJoinColumns = {@JoinColumn(name = "bike_id")})

@@ -12,6 +12,7 @@ import java.util.List;
 @Mapper
 public interface BrandDtoMapper {
     BikeDtoMapper bikeMapper = new BikeDtoMapperImpl();
+
     @Mapping(target = "id", expression = "java(null)")
     @Mapping(target = "brand", expression = "java(brandIncomingDto.getBrand())")
     @Mapping(target = "bikes", expression = "java(null)")

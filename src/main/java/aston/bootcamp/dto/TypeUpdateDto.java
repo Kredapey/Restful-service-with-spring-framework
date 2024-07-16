@@ -1,8 +1,7 @@
 package aston.bootcamp.dto;
 
-import aston.bootcamp.model.Bike;
-
 import java.util.List;
+import java.util.Objects;
 
 public class TypeUpdateDto {
     private Long id;
@@ -40,5 +39,18 @@ public class TypeUpdateDto {
 
     public String getType() {
         return type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TypeUpdateDto that = (TypeUpdateDto) o;
+        return Objects.equals(id, that.id) && Objects.equals(type, that.type);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, type);
     }
 }

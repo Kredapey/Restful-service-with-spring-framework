@@ -1,9 +1,7 @@
 package aston.bootcamp.config.service;
 
 import aston.bootcamp.repository.BikeRepository;
-import aston.bootcamp.repository.BrandRepository;
 import aston.bootcamp.repository.DealershipRepository;
-import aston.bootcamp.service.impl.BrandServiceImpl;
 import aston.bootcamp.service.impl.DealershipServiceImpl;
 import org.mockito.Mockito;
 import org.springframework.context.annotation.Bean;

@@ -5,7 +5,6 @@ import aston.bootcamp.dto.DealershipOutgoingDto;
 import aston.bootcamp.dto.DealershipUpdateDto;
 import aston.bootcamp.exceptions.NotFoundException;
 import aston.bootcamp.service.DealershipService;
-import aston.bootcamp.service.impl.DealershipServiceImpl;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,13 +25,13 @@ public class DealershipController {
     }
 
     @GetMapping("/all")
-    public List<DealershipOutgoingDto> findAllDealerships() {
-        return dealershipService.getAllDealerships();
+    public ResponseEntity<List<DealershipOutgoingDto>> findAllDealerships() {
+        return ResponseEntity.status(HttpStatus.OK).body(dealershipService.getAllDealerships());
     }
 
     @GetMapping("/{id}")
-    public DealershipOutgoingDto findDealershipById(@PathVariable(name = "id") Long id) throws NotFoundException {
-        return dealershipService.getDealershipById(id);
+    public ResponseEntity<DealershipOutgoingDto> findDealershipById(@PathVariable(name = "id") Long id) throws NotFoundException {
+        return ResponseEntity.status(HttpStatus.OK).body(dealershipService.getDealershipById(id));
     }
 
     @PostMapping
@@ -43,7 +42,7 @@ public class DealershipController {
 
     @PutMapping("/{id}")
     public ResponseEntity<DealershipOutgoingDto> updateDealership(@PathVariable(name = "id") Long id,
-                                                       @RequestBody DealershipUpdateDto updatedDealership)
+                                                                  @RequestBody DealershipUpdateDto updatedDealership)
             throws NotFoundException {
         DealershipOutgoingDto updated = dealershipService.updateDealership(id, updatedDealership);
         return ResponseEntity.ok(updated);

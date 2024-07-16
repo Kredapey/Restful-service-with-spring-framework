@@ -9,8 +9,12 @@ import java.util.List;
 
 public interface BrandService {
     List<BrandOutgoingDto> getAllBrands();
+
     BrandOutgoingDto getBrandById(Long id) throws NotFoundException;
+
     BrandOutgoingDto createBrand(BrandIncomingDto brand);
+
     BrandOutgoingDto updateBrand(Long id, BrandUpdateDto brandUpdateDto) throws NotFoundException;
+
     void deleteByBrandId(Long id) throws NotFoundException;
 }

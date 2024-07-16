@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -42,7 +43,7 @@ public class BikeServiceTest {
     }
 
     @Test
-    void save() {
+    void save() throws SQLException {
         Long expectedId = 1L;
         BikeIncomingDto bikeIncomingDto = new BikeIncomingDto(type, brand, "test_model", 100L);
         Bike bike = new Bike(expectedId, type, brand, "test_model", 100L, List.of());

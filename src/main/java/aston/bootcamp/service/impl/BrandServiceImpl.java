@@ -1,6 +1,8 @@
 package aston.bootcamp.service.impl;
 
-import aston.bootcamp.dto.*;
+import aston.bootcamp.dto.BrandIncomingDto;
+import aston.bootcamp.dto.BrandOutgoingDto;
+import aston.bootcamp.dto.BrandUpdateDto;
 import aston.bootcamp.dto.mapper.BrandDtoMapper;
 import aston.bootcamp.dto.mapper.BrandDtoMapperImpl;
 import aston.bootcamp.exceptions.NotFoundException;

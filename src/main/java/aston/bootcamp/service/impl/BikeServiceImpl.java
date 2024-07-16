@@ -1,6 +1,8 @@
 package aston.bootcamp.service.impl;
 
-import aston.bootcamp.dto.*;
+import aston.bootcamp.dto.BikeIncomingDto;
+import aston.bootcamp.dto.BikeOutgoingDto;
+import aston.bootcamp.dto.BikeUpdateDto;
 import aston.bootcamp.dto.mapper.BikeDtoMapper;
 import aston.bootcamp.dto.mapper.BikeDtoMapperImpl;
 import aston.bootcamp.exceptions.NotFoundException;
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Service
@@ -47,7 +50,7 @@ public class BikeServiceImpl implements BikeService {
 
     @Override
     @Transactional
-    public BikeOutgoingDto createBike(BikeIncomingDto bike) {
+    public BikeOutgoingDto createBike(BikeIncomingDto bike) throws SQLException {
         Bike bikeForCreate = mapper.bikeIncomingDtoToBike(bike);
         return mapper.bikeToBikeOutgoingDto(bikeRepository.save(bikeForCreate));
     }

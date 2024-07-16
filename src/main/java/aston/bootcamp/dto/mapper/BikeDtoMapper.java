@@ -14,6 +14,7 @@ public interface BikeDtoMapper {
     DealershipDtoMapper dealershipMapper = new DealershipDtoMapperImpl();
     BrandDtoMapper brandMapper = new BrandDtoMapperImpl();
     TypeDtoMapper typeMapper = new TypeDtoMapperImpl();
+
     @Mapping(target = "id", expression = "java(null)")
     @Mapping(target = "type", expression = "java(bikeIncomingDto.getType())")
     @Mapping(target = "brand", expression = "java(bikeIncomingDto.getBrand())")

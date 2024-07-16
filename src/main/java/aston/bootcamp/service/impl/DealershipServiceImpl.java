@@ -88,7 +88,8 @@ public class DealershipServiceImpl implements DealershipService {
         Dealership dealership = dealershipRepository.findById(dealershipId).orElseThrow(() -> new EntityNotFoundException("Dealership not found"));
         Bike bike = bikeRepository.findById(bikeId).orElseThrow(() -> new EntityNotFoundException("Bike not found"));
         List<Bike> bikes = dealership.getBikes();
-        bikes.add(bike);
+        if (!bikes.contains(bike))
+            bikes.add(bike);
         dealership.setBikes(bikes);
         return mapper.dealershipToDealershipOutgoingDto(dealershipRepository.save(dealership));
     }

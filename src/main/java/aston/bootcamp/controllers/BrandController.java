@@ -5,7 +5,6 @@ import aston.bootcamp.dto.BrandOutgoingDto;
 import aston.bootcamp.dto.BrandUpdateDto;
 import aston.bootcamp.exceptions.NotFoundException;
 import aston.bootcamp.service.BrandService;
-import aston.bootcamp.service.impl.BrandServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,19 +16,20 @@ import java.util.List;
 @RequestMapping("/brand")
 public class BrandController {
     private final BrandService brandService;
+
     @Autowired
     public BrandController(BrandService brandService) {
         this.brandService = brandService;
     }
 
     @GetMapping("/all")
-    public List<BrandOutgoingDto> findAllBrands() {
-        return brandService.getAllBrands();
+    public ResponseEntity<List<BrandOutgoingDto>> findAllBrands() {
+        return ResponseEntity.status(HttpStatus.OK).body(brandService.getAllBrands());
     }
 
     @GetMapping("/{id}")
-    public BrandOutgoingDto findBrandById(@PathVariable(name = "id") Long id) throws NotFoundException {
-        return brandService.getBrandById(id);
+    public ResponseEntity<BrandOutgoingDto> findBrandById(@PathVariable(name = "id") Long id) throws NotFoundException {
+        return ResponseEntity.status(HttpStatus.OK).body(brandService.getBrandById(id));
     }
 
     @PostMapping
@@ -40,7 +40,7 @@ public class BrandController {
 
     @PutMapping("/{id}")
     public ResponseEntity<BrandOutgoingDto> updateBrand(@PathVariable(name = "id") Long id,
-                                             @RequestBody BrandUpdateDto updatedBrand)
+                                                        @RequestBody BrandUpdateDto updatedBrand)
             throws NotFoundException {
         BrandOutgoingDto updated = brandService.updateBrand(id, updatedBrand);
         return ResponseEntity.ok(updated);

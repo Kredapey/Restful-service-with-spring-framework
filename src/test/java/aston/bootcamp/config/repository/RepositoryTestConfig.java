@@ -59,6 +59,7 @@ public class RepositoryTestConfig {
         config.setAutoCommit(setAutocommit);
         return new HikariDataSource(config);
     }
+
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();

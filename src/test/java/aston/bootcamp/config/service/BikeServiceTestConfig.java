@@ -1,6 +1,5 @@
 package aston.bootcamp.config.service;
 
-import aston.bootcamp.model.Type;
 import aston.bootcamp.repository.BikeRepository;
 import aston.bootcamp.service.impl.BikeServiceImpl;
 import org.mockito.Mockito;

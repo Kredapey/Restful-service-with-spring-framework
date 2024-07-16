@@ -1,9 +1,6 @@
 package aston.bootcamp.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +23,7 @@ public class Bike {
     @Column(name = "cost")
     private Long cost;
     @ManyToMany(mappedBy = "bikes",
-    fetch = FetchType.EAGER)
+            fetch = FetchType.EAGER)
     List<Dealership> dealerships;
 
     public Bike(Long id, Type type, Brand brand, String model, Long cost, List<Dealership> dealerships) {
@@ -121,6 +118,6 @@ public class Bike {
                ", type=" + type +
                ", brand=" + brand +
                ", model='" + model + '\'' +
-               ", cost=" + cost +'}';
+               ", cost=" + cost + '}';
     }
 }

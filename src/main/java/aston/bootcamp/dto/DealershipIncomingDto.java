@@ -1,5 +1,7 @@
 package aston.bootcamp.dto;
 
+import java.util.Objects;
+
 public class DealershipIncomingDto {
     private String city;
     private String street;
@@ -36,5 +38,18 @@ public class DealershipIncomingDto {
 
     public void setHouseNum(Long houseNum) {
         this.houseNum = houseNum;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DealershipIncomingDto that = (DealershipIncomingDto) o;
+        return Objects.equals(city, that.city) && Objects.equals(street, that.street) && Objects.equals(houseNum, that.houseNum);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(city, street, houseNum);
     }
 }

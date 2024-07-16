@@ -3,6 +3,8 @@ package aston.bootcamp.dto;
 import aston.bootcamp.model.Brand;
 import aston.bootcamp.model.Type;
 
+import java.util.Objects;
+
 public class BikeIncomingDto {
     private Type type;
     private Brand brand;
@@ -25,6 +27,19 @@ public class BikeIncomingDto {
 
     public Brand getBrand() {
         return brand;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BikeIncomingDto that = (BikeIncomingDto) o;
+        return Objects.equals(type, that.type) && Objects.equals(brand, that.brand) && Objects.equals(model, that.model) && Objects.equals(cost, that.cost);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, brand, model, cost);
     }
 
     public String getModel() {

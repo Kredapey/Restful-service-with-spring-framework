@@ -1,8 +1,8 @@
 package aston.bootcamp.dto;
 
-import aston.bootcamp.model.Bike;
 
 import java.util.List;
+import java.util.Objects;
 
 public class BrandOutgoingDto {
     private Long id;
@@ -40,5 +40,18 @@ public class BrandOutgoingDto {
 
     public String getBrand() {
         return brand;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BrandOutgoingDto that = (BrandOutgoingDto) o;
+        return Objects.equals(id, that.id) && Objects.equals(brand, that.brand);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, brand);
     }
 }

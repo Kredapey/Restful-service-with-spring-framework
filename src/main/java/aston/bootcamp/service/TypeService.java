@@ -9,8 +9,12 @@ import java.util.List;
 
 public interface TypeService {
     List<TypeOutgoingDto> getAllTypes();
+
     TypeOutgoingDto getByTypeId(Long id) throws NotFoundException;
+
     TypeOutgoingDto createType(TypeIncomingDto type);
+
     TypeOutgoingDto updateType(Long id, TypeUpdateDto typeUpdateDto) throws NotFoundException;
+
     void deleteByTypeId(Long id) throws NotFoundException;
 }

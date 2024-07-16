@@ -1,8 +1,8 @@
 package aston.bootcamp.dto;
 
-import aston.bootcamp.model.Bike;
 
 import java.util.List;
+import java.util.Objects;
 
 public class BrandUpdateDto {
     private Long id;
@@ -40,5 +40,18 @@ public class BrandUpdateDto {
 
     public void setBikes(List<BikeUpdateDto> bikes) {
         this.bikes = bikes;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BrandUpdateDto that = (BrandUpdateDto) o;
+        return Objects.equals(id, that.id) && Objects.equals(brand, that.brand);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, brand);
     }
 }

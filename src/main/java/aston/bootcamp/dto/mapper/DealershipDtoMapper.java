@@ -13,6 +13,7 @@ import java.util.List;
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface DealershipDtoMapper {
     BikeDtoMapper bikeMapper = new BikeDtoMapperImpl();
+
     @Mapping(target = "id", expression = "java(null)")
     @Mapping(target = "city", expression = "java(dealershipIncomingDto.getCity())")
     @Mapping(target = "street", expression = "java(dealershipIncomingDto.getStreet())")

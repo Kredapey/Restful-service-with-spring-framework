@@ -14,24 +14,24 @@ public class ExceptionAdvice {
     @ExceptionHandler({NotFoundException.class})
     public ResponseEntity<Response> handleNotFoundException(NotFoundException e) {
         Response response = new Response(e.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<Response> handleIllegalArgumentException(IllegalArgumentException e) {
-        Response response = new Response(e.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        Response response = new Response(e.getMessage() + "ILLEGAL ARGUMENT");
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(SQLException.class)
     public ResponseEntity<Response> handleSqlException(SQLException e) {
         Response response = new Response(e.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<Response> handleEntityNotFoundException(EntityNotFoundException e) {
         Response response = new Response(e.getMessage());
-        return new ResponseEntity<>(response, HttpStatus.OK);
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 }

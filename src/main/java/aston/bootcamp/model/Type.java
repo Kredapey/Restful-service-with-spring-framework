@@ -1,6 +1,5 @@
 package aston.bootcamp.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ public class Type {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name =  "type")
+    @Column(name = "type")
     private String type;
 
     @OneToMany(mappedBy = "type", fetch = FetchType.EAGER)
@@ -44,7 +43,6 @@ public class Type {
                "id=" + id +
                ", type='" + type + '}';
     }
-
 
 
     public List<Bike> getBikes() {
